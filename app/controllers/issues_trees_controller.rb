@@ -24,7 +24,7 @@ class IssuesTreesController < ApplicationController
     # put in data-attributes number of column with tree; +1 due to a column with checkboxes
     # additionally put an url for retrieve a children for issues
     @tree_data = { treetable_column_number: (@query.columns.index{|col| col.name == :subject} || 0) + 1,
-                   url_for_load_tree_children: "/projects/#{ @project.identifier}/issues_trees/",
+                   url_for_load_tree_children: "#{Redmine::Utils::relative_url_root}/projects/#{ @project.identifier}/issues_trees/",
                    action_for_load_tree_children: '/tree_children',
                    query_params: query_params }
 
